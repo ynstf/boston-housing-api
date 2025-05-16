@@ -75,70 +75,68 @@ Based on the project's implementation, the following class diagram represents th
 
 ```mermaid
 classDiagram
-    %% Database Model
+    %% Database ORM Model
     class Home {
-        +id: Integer
-        +rm: Float
-        +lstat: Float
-        +dis: Float
-        +tax: Float
-        +ptratio: Float
-        +age: Float
-        +indus: Float
-        +medv: Float
+      +Integer id
+      +Float rm
+      +Float lstat
+      +Float dis
+      +Float tax
+      +Float ptratio
+      +Float age
+      +Float indus
+      +Float medv
     }
 
-    %% Pydantic Models
+    %% Pydantic Schemas
     class HomeBase {
-        +rm: float
-        +lstat: float
-        +dis: float
-        +tax: float
-        +ptratio: float
-        +age: float
-        +indus: float
+      +Float rm
+      +Float lstat
+      +Float dis
+      +Float tax
+      +Float ptratio
+      +Float age
+      +Float indus
     }
-
     class HomeCreate {
-        +medv: float
+      +Float medv
+      +create_home(home: HomeCreate)
     }
-
     class HomeOut {
-        +id: int
-        +medv: float
+      +Integer id
+      +Float medv
     }
-
     class Prediction {
-        +predicted_price_dh: float
+      +Float predicted_price_dh
+      +predict_price(home: HomeBase)
     }
 
-    %% Database Dependencies
-    class SessionDependency {
-        +get_db(): Session
-    }
-
-    %% API Routes/Controllers
+    %% FastAPI App and Endpoints
     class FastAPIApp {
-        +read_root(): dict
-        +create_home(home: HomeCreate, db: Session): HomeOut
-        +list_homes(skip: int, limit: int, db: Session): List[HomeOut]
-        +predict_price(home: HomeBase): Prediction
-        +recommendation(price: float, limit: int, db: Session): List[HomeOut]
-    }
-
-    %% ML Model
-    class PredictionModel {
-        +predict(features: array): array
+      +read_root()
+      +create_home(home: HomeCreate)
+      +list_homes(skip: int, limit: int)
+      +predict_price(home: HomeBase)
+      +recommendation(price: float, limit: int)
     }
 
     %% Relationships
+    Home <|-- HomeOut
     HomeBase <|-- HomeCreate
-    HomeBase <|-- HomeOut
-    SessionDependency --> FastAPIApp: provides
-    FastAPIApp --> PredictionModel: uses
-    FastAPIApp --> Home: manipulates
-    HomeCreate --> Home: creates
-    Home --> HomeOut: transforms to
+    HomeBase <|-- Prediction
+    HomeCreate --> Home : creates
+    HomeOut --> Home : reads
+    Prediction ..> HomeBase : input schema
+    FastAPIApp o-- Home : uses
+    FastAPIApp o-- HomeCreate : input
+    FastAPIApp o-- HomeOut : output
+    FastAPIApp o-- Prediction : output
+
+    %% Recommendation logic uses FUNC
+    class Recommendation {
+      +recommendation(price: float, limit: int)
+    }
+    FastAPIApp --> Recommendation : provides endpoint
 ```
 
 This diagram shows the core components of the application:

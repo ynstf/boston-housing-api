@@ -13,6 +13,7 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
+
 # --- SQLAlchemy model ---
 class Home(Base):
     __tablename__ = "homes"
@@ -26,7 +27,9 @@ class Home(Base):
     indus = Column(Float, nullable=False)
     medv = Column(Float, nullable=False)  # Actual median value
 
+
 Base.metadata.create_all(bind=engine)
+
 
 # --- Pydantic schemas ---
 class HomeBase(BaseModel):
@@ -38,27 +41,31 @@ class HomeBase(BaseModel):
     age: float
     indus: float
 
+
 class HomeCreate(HomeBase):
     medv: float  # Include actual median value when creating
+
 
 class HomeOut(HomeBase):
     id: int
     medv: float
+
     class Config:
         orm_mode = True
 
+
 class Prediction(BaseModel):
     predicted_price_dh: float
+
 
 # --- Load trained model ---
 model = joblib.load("pipeline.pkl")
 
 # --- FastAPI instance ---
 app = FastAPI(
-    title="Boston Housing Predictor API",
-    docs_url="/docs",
-    redoc_url="/redoc"
+    title="Boston Housing Predictor API", docs_url="/docs", redoc_url="/redoc"
 )
+
 
 # --- Dependency ---
 def get_db():
@@ -68,10 +75,12 @@ def get_db():
     finally:
         db.close()
 
+
 # --- Routes ---
 @app.get("/", tags=["root"])
 def read_root():
     return {"message": "Welcome to the Boston Housing Predictor API"}
+
 
 @app.post("/homes/", response_model=HomeOut)
 def create_home(home: HomeCreate, db: Session = Depends(get_db)):
@@ -82,19 +91,24 @@ def create_home(home: HomeCreate, db: Session = Depends(get_db)):
     db.refresh(db_home)
     return db_home
 
+
 @app.get("/homes/", response_model=list[HomeOut])
 def list_homes(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return db.query(Home).offset(skip).limit(limit).all()
 
+
 @app.post("/predict/", response_model=Prediction)
 def predict_price(home: HomeBase):
-    vals = [[home.rm, home.lstat, home.dis, home.tax, home.ptratio, home.age, home.indus]]
+    vals = [
+        [home.rm, home.lstat, home.dis, home.tax, home.ptratio, home.age, home.indus]
+    ]
     pred = model.predict(vals)[0]
     # model predicts median value in $1000s
     dollar_price = float(pred * 1000)
     # Convert dollar to dirham (assuming rate *10)
     dirham_price = round(dollar_price, 1) * 10
     return {"predicted_price_dh": dirham_price}
+
 
 @app.get("/recommendation/", response_model=list[HomeOut])
 def recommendation(price: float, limit: int = 20, db: Session = Depends(get_db)):
@@ -106,12 +120,7 @@ def recommendation(price: float, limit: int = 20, db: Session = Depends(get_db))
     # medv stored in thousands, convert price to same scale
     target = price / 1000
     target = target / 10
-    homes = (
-        db.query(Home)
-        .order_by(func.abs(Home.medv - target))
-        .limit(limit)
-        .all()
-    )
+    homes = db.query(Home).order_by(func.abs(Home.medv - target)).limit(limit).all()
     if not homes:
         raise HTTPException(status_code=404, detail="No homes found for recommendation")
     return homes

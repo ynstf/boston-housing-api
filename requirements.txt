@@ -4,3 +4,4 @@ sqlalchemy
 pydantic
 joblib
 scikit-learn
+pandas
