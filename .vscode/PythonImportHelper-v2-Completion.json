@@ -1,0 +1,407 @@
+[
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "joblib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "joblib",
+        "description": "joblib",
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "Home",
+        "kind": 6,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "class Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)\n    rm = Column(Float, nullable=False)\n    lstat = Column(Float, nullable=False)\n    dis = Column(Float, nullable=False)\n    tax = Column(Float, nullable=False)\n    ptratio = Column(Float, nullable=False)\n    age = Column(Float, nullable=False)\n    indus = Column(Float, nullable=False)",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "SQLALCHEMY_DATABASE_URL",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "SQLALCHEMY_DATABASE_URL = \"sqlite:///./homes.db\"\nengine = create_engine(\n    SQLALCHEMY_DATABASE_URL,\n    connect_args={\"check_same_thread\": False}\n)\nSessionLocal = sessionmaker(bind=engine)\nBase = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "engine = create_engine(\n    SQLALCHEMY_DATABASE_URL,\n    connect_args={\"check_same_thread\": False}\n)\nSessionLocal = sessionmaker(bind=engine)\nBase = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "SessionLocal = sessionmaker(bind=engine)\nBase = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)\n    rm = Column(Float, nullable=False)\n    lstat = Column(Float, nullable=False)\n    dis = Column(Float, nullable=False)\n    tax = Column(Float, nullable=False)",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "Base = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)\n    rm = Column(Float, nullable=False)\n    lstat = Column(Float, nullable=False)\n    dis = Column(Float, nullable=False)\n    tax = Column(Float, nullable=False)\n    ptratio = Column(Float, nullable=False)",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "url",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "url = \"https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv\"\ndf = pd.read_csv(url)\n# Keep only the desired columns\nkeep_cols = ['rm', 'lstat', 'dis', 'tax', 'ptratio', 'age', 'indus', 'medv']\ndf = df[keep_cols]\n# --- Insert into database ---\nsession = SessionLocal()\nfor _, row in df.iterrows():\n    home = Home(\n        rm=row.rm,",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "df = pd.read_csv(url)\n# Keep only the desired columns\nkeep_cols = ['rm', 'lstat', 'dis', 'tax', 'ptratio', 'age', 'indus', 'medv']\ndf = df[keep_cols]\n# --- Insert into database ---\nsession = SessionLocal()\nfor _, row in df.iterrows():\n    home = Home(\n        rm=row.rm,\n        lstat=row.lstat,",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "keep_cols",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "keep_cols = ['rm', 'lstat', 'dis', 'tax', 'ptratio', 'age', 'indus', 'medv']\ndf = df[keep_cols]\n# --- Insert into database ---\nsession = SessionLocal()\nfor _, row in df.iterrows():\n    home = Home(\n        rm=row.rm,\n        lstat=row.lstat,\n        dis=row.dis,\n        tax=row.tax,",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "df = df[keep_cols]\n# --- Insert into database ---\nsession = SessionLocal()\nfor _, row in df.iterrows():\n    home = Home(\n        rm=row.rm,\n        lstat=row.lstat,\n        dis=row.dis,\n        tax=row.tax,\n        ptratio=row.ptratio,",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "load_data",
+        "description": "load_data",
+        "peekOfCode": "session = SessionLocal()\nfor _, row in df.iterrows():\n    home = Home(\n        rm=row.rm,\n        lstat=row.lstat,\n        dis=row.dis,\n        tax=row.tax,\n        ptratio=row.ptratio,\n        age=row.age,\n        indus=row.indus,",
+        "detail": "load_data",
+        "documentation": {}
+    },
+    {
+        "label": "Home",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)\n    rm = Column(Float, nullable=False)\n    lstat = Column(Float, nullable=False)\n    dis = Column(Float, nullable=False)\n    tax = Column(Float, nullable=False)\n    ptratio = Column(Float, nullable=False)\n    age = Column(Float, nullable=False)\n    indus = Column(Float, nullable=False)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "HomeBase",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class HomeBase(BaseModel):\n    rm: float\n    lstat: float\n    dis: float\n    tax: float\n    ptratio: float\n    age: float\n    indus: float\nclass HomeCreate(HomeBase):\n    medv: float  # Include actual median value when creating",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "HomeCreate",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class HomeCreate(HomeBase):\n    medv: float  # Include actual median value when creating\nclass HomeOut(HomeBase):\n    id: int\n    medv: float\n    class Config:\n        orm_mode = True\nclass Prediction(BaseModel):\n    predicted_price_dh: float\n# --- Load trained model ---",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "HomeOut",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class HomeOut(HomeBase):\n    id: int\n    medv: float\n    class Config:\n        orm_mode = True\nclass Prediction(BaseModel):\n    predicted_price_dh: float\n# --- Load trained model ---\nmodel = joblib.load(\"pipeline.pkl\")\n# --- FastAPI instance ---",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "Prediction",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class Prediction(BaseModel):\n    predicted_price_dh: float\n# --- Load trained model ---\nmodel = joblib.load(\"pipeline.pkl\")\n# --- FastAPI instance ---\napp = FastAPI(\n    title=\"Boston Housing Predictor API\",\n    docs_url=\"/docs\",\n    redoc_url=\"/redoc\"\n)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()\n# --- Routes ---\n@app.get(\"/\", tags=[\"root\"])\ndef read_root():\n    return {\"message\": \"Welcome to the Boston Housing Predictor API\"}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "read_root",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def read_root():\n    return {\"message\": \"Welcome to the Boston Housing Predictor API\"}\n@app.post(\"/homes/\", response_model=HomeOut)\ndef create_home(home: HomeCreate, db: Session = Depends(get_db)):\n    # Store new home record including actual median value\n    db_home = Home(**home.dict())\n    db.add(db_home)\n    db.commit()\n    db.refresh(db_home)\n    return db_home",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "create_home",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def create_home(home: HomeCreate, db: Session = Depends(get_db)):\n    # Store new home record including actual median value\n    db_home = Home(**home.dict())\n    db.add(db_home)\n    db.commit()\n    db.refresh(db_home)\n    return db_home\n@app.get(\"/homes/\", response_model=list[HomeOut])\ndef list_homes(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):\n    return db.query(Home).offset(skip).limit(limit).all()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "list_homes",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def list_homes(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):\n    return db.query(Home).offset(skip).limit(limit).all()\n@app.post(\"/predict/\", response_model=Prediction)\ndef predict_price(home: HomeBase):\n    vals = [[home.rm, home.lstat, home.dis, home.tax, home.ptratio, home.age, home.indus]]\n    pred = model.predict(vals)[0]\n    # model predicts median value in $1000s\n    dollar_price = float(pred * 1000)\n    # Convert dollar to dirham (assuming rate *10)\n    dirham_price = round(dollar_price, 1) * 10",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "predict_price",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def predict_price(home: HomeBase):\n    vals = [[home.rm, home.lstat, home.dis, home.tax, home.ptratio, home.age, home.indus]]\n    pred = model.predict(vals)[0]\n    # model predicts median value in $1000s\n    dollar_price = float(pred * 1000)\n    # Convert dollar to dirham (assuming rate *10)\n    dirham_price = round(dollar_price, 1) * 10\n    return {\"predicted_price_dh\": dirham_price}\n@app.get(\"/recommendation/\", response_model=list[HomeOut])\ndef recommendation(price: float, limit: int = 20, db: Session = Depends(get_db)):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "recommendation",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def recommendation(price: float, limit: int = 20, db: Session = Depends(get_db)):\n    \"\"\"\n    Recommend homes with median values closest to the given price (in dirhams).\n    - price: target median home price in dirhams\n    - limit: number of recommendations to return\n    \"\"\"\n    # medv stored in thousands, convert price to same scale\n    target = price / 1000\n    target = target / 10\n    homes = (",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "SQLALCHEMY_DATABASE_URL",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "SQLALCHEMY_DATABASE_URL = \"sqlite:///./homes.db\"\nengine = create_engine(\n    SQLALCHEMY_DATABASE_URL, connect_args={\"check_same_thread\": False}\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "engine = create_engine(\n    SQLALCHEMY_DATABASE_URL, connect_args={\"check_same_thread\": False}\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)\n    rm = Column(Float, nullable=False)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)\n    rm = Column(Float, nullable=False)\n    lstat = Column(Float, nullable=False)\n    dis = Column(Float, nullable=False)\n    tax = Column(Float, nullable=False)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "Base = declarative_base()\n# --- SQLAlchemy model ---\nclass Home(Base):\n    __tablename__ = \"homes\"\n    id = Column(Integer, primary_key=True, index=True)\n    rm = Column(Float, nullable=False)\n    lstat = Column(Float, nullable=False)\n    dis = Column(Float, nullable=False)\n    tax = Column(Float, nullable=False)\n    ptratio = Column(Float, nullable=False)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "model = joblib.load(\"pipeline.pkl\")\n# --- FastAPI instance ---\napp = FastAPI(\n    title=\"Boston Housing Predictor API\",\n    docs_url=\"/docs\",\n    redoc_url=\"/redoc\"\n)\n# --- Dependency ---\ndef get_db():\n    db = SessionLocal()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI(\n    title=\"Boston Housing Predictor API\",\n    docs_url=\"/docs\",\n    redoc_url=\"/redoc\"\n)\n# --- Dependency ---\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db",
+        "detail": "main",
+        "documentation": {}
+    }
+]
